@@ -12,8 +12,7 @@ import (
 
 func main() {
 	fmt.Println("v0.0.1")
-	err := os.Remove("./subscription.db")
-	utils.LogErr(err)
+	defer os.Remove("./subscription.db")
 	f, err := os.Create("./subscription.db")
 	utils.CheckErr(err)
 	f.Close()
