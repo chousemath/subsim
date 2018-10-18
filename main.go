@@ -21,12 +21,19 @@ func main() {
 	// open up database connection
 	db, err := sql.Open("sqlite3", "./subscription.db")
 	utils.CheckErr(err)
-	fmt.Println(&db)
 
 	// create all database tables
 	err = models.CreateTableVehicle(db)
 	utils.CheckErr(err)
 	err = models.CreateTableSubscription(db)
+	utils.CheckErr(err)
+	err = models.CreateTablePerson(db)
+	utils.CheckErr(err)
+	err = models.CreateTablePayment(db)
+	utils.CheckErr(err)
+	err = models.CreateTablePurchase(db)
+	utils.CheckErr(err)
+	err = models.CreateTableSale(db)
 	utils.CheckErr(err)
 }
 
